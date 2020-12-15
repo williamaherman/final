@@ -11,9 +11,9 @@ CREATE TABLE IF NOT EXISTS Inventory (
     PRIMARY KEY (`id`)
 );
 INSERT INTO Inventory(product_name, product_description, made_in, price, color) VALUES
-    ('Nightstand', 'night stand built by prominent artist', 'New England', '125', 'white'),
-    ('Coffee table', 'coffee table perfect for living room', 'China', '25', 'brown'),
-    ('Bed', 'queen sized bed', 'Brazil', '300', 'brown'),
-    ('lever', 'think about all the levers you''ved pulled', 'Unknown', '10', 'black'),
-    ('kitchen table', 'can sit 4-6 people', 'New Jersey', '100', 'yellow'),
-    ('recliner', 'adjustable head rest and massage chair', 'Japan', '399', 'green')
+    ('Nightstand', 'fair condition, night stand built by prominent artist', 'New England', '125', 'white'),
+    ('Coffee table', 'good condition, coffee table perfect for living room', 'China', '25', 'brown'),
+    ('Bed', 'great condition, bueen sized bed', 'Brazil', '300', 'brown'),
+    ('lever', 'ok condition but think about all the levers you''ved pulled', 'Unknown', '10', 'black'),
+    ('kitchen table', 'excellent condition, can sit 4-6 people', 'New Jersey', '100', 'yellow'),
+    ('recliner', 'new, adjustable head rest and massage chair', 'Japan', '399', 'green')

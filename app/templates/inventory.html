@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h2>Inventory</h2>
+    <table class="table table-borderless table-striped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Description</th>
+            <th scope="col">Made In</th>
+            <th scope="col">Price</th>
+            <th scope="col">Color</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for inventory in inventory %}
+            <tr>
+                <td>{{ inventory['product_name'] }}</td>
+                <td>{{ inventory['product_description'] }}</td>
+                <td>{{ inventory['made_in,'] }}</td>
+                <td>{{ inventory['price'] }}</td>
+                <td>{{ inventory['color'] }}</td>
+                <td>
+                    <a class="btn btn-sm btn-success" href="listview/{{ inventory['id'] }}">View</a>
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-primary" href="edit/{{ inventory['id'] }}">Edit</a>
+                </td>
+                <td>
+                    <form action="/delete/{{ inventory['id'] }}" method="post">
+                        <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-info" href="new.html">Add New Inventory</a>
+{% endblock %}

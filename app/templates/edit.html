@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h2>Edit The Inventory</h2>
+
+    <form action="/edit/{{ inventory['id'] }}" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Product Name</label>
+                <input type="text" class="form-control" name="product_name" id="product_name"
+                       value="{{ inventory['product_name'] }}">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Product Description</label>
+                <input type="text" class="form-control" name="product_description" id="product_description"
+                       value="{{ inventory['product_description'] }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Made In</label>
+            <input type="text" class="form-control" name="made" id="made" value="{{ inventory['made_in'] }}">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Price</label>
+                <input type="text" class="form-control" name="price" id="price" value="{{ inventory['price'] }}">
+            </div>
+            <div class="form-group col-md-4">
+                <label>Color</label>
+                <input type="text" class="form-control" name="color" id="color" value="{{ inventory['color'] }}">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+{% endblock %}
