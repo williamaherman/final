@@ -41,10 +41,10 @@ def edit_taxable(taxable_id):
 @app.route('/edit/<int:taxable_id>', methods=['POST'])
 def update_taxable(taxable_id):
     cursor = mysql.get_db().cursor()
-    sql = "UPDATE taxables SET Index= %s, Item=%s, Cost=%s, Tax=%s, Total=%s WHERE id = %s"
+    sql = "UPDATE taxables SET Item=%s, Cost=%s, Tax=%s, Total=%s WHERE id = %s"
     req = request.form
     val = (
-        req.get('Index'), req.get('Item'), req.get('Cost'), req.get('Tax'), req.get('Total'),
+        req.get('Item'), req.get('Cost'), req.get('Tax'), req.get('Total'),
         taxable_id)
     cursor.execute(sql, val)
     mysql.get_db().commit()
@@ -60,9 +60,9 @@ def new_taxable_form():
 @app.route('/new', methods=['POST'])
 def create_taxable():
     cursor = mysql.get_db().cursor()
-    sql = "INSERT INTO taxables (Index, Item, Tax, Total) VALUES (%s,%s,%s,%s,%s)"
+    sql = "INSERT INTO taxables (Item, Tax, Total) VALUES (%s,%s,%s,%s)"
     req = request.form
-    val = (req.get('Index'), req.get('Item'), req.get('Cost'), req.get('Tax'), req.get('Total'))
+    val = (req.get('Item'), req.get('Cost'), req.get('Tax'), req.get('Total'))
     cursor.execute(sql, val)
     mysql.get_db().commit()
     return redirect("/", code=302)
@@ -102,8 +102,8 @@ def view_taxables(taxables_id):
 def change_taxables(taxables_id):
     cursor = mysql.get_db().cursor()
     content = request.json
-    sql = "UPDATE taxables SET Index= %s, Item=%s, Cost=%s, Tax=%s, Total=%s WHERE id = %s"
-    val = (content['Index'], content['Item'], content['Cost'], content['Tax'], content['Total'])
+    sql = "UPDATE taxables SET Item=%s, Cost=%s, Tax=%s, Total=%s WHERE id = %s"
+    val = (content['Item'], content['Cost'], content['Tax'], content['Total'])
     cursor.execute(sql, val)
     mysql.get_db().commit()
     resp = Response(status=200, mimetype='application/json')
@@ -114,8 +114,8 @@ def change_taxables(taxables_id):
 def new_taxables():
     cursor = mysql.get_db().cursor()
     content = request.json
-    sql = "INSERT INTO taxables (Index, Item, Cost, Tax, Total) VALUES (%s,%s,%s,%s,%s)"
-    val = (content['Index'], content['Item'], content['Cost'], content['Tax'], content['Total'])
+    sql = "INSERT INTO taxables (Item, Cost, Tax, Total) VALUES (%s,%s,%s,%s)"
+    val = (content['Item'], content['Cost'], content['Tax'], content['Total'])
     cursor.execute(sql, val)
     mysql.get_db().commit()
     resp = Response(status=200, mimetype='application/json')
