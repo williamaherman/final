@@ -14,28 +14,28 @@ mysql.init_app(app)
 
 @app.route('/', methods=['GET'])
 def inventory():
-    user = {'username': 'Inventory Viewer'}
+    user = {'username': 'William'}
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM Inventory')
     result = cursor.fetchall()
-    return render_template('layout.html', user=user, addresses=result)
+    return render_template('inventory.html', user=user, inventory=result)
 
 
-@app.route('/listview/<int:inventory_id>', methods=['GET'])
+@app.route('/view/<int:inventory_id>', methods=['GET'])
 def show_inventory(inventory_id):
-    user = {'username': 'Final Project'}
+    user = {'username': 'William'}
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM Inventory WHERE id=%s', inventory_id)
     result = cursor.fetchall()
-    return render_template('listview.html', user=user, address=result[0])
+    return render_template('view.html', user=user, inventory=result[0])
 
 @app.route('/edit/<int:inventory_id>', methods=['GET'])
 def edit_inventory(inventory_id):
-    user = {'username': 'Addresses Project'}
+    user = {'username': 'William'}
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM Inventory WHERE id=%s', inventory_id)
     result = cursor.fetchall()
-    return render_template('edit.html', user=user, address=result[0])
+    return render_template('edit.html', user=user, inventory=result[0])
 
 
 @app.route('/edit/<int:inventory_id>', methods=['POST'])
@@ -52,8 +52,8 @@ def update_inventory(inventory_id):
 
 
 @app.route('/new', methods=['GET'])
-def create_inventory_form():
-    user = {'username': 'sa'}
+def new_inventory_form():
+    user = {'username': 'William'}
     return render_template('new.html', user=user)
 
 
@@ -83,7 +83,7 @@ def list_inventory():
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM Inventory')
     result = cursor.fetchall()
-    json_result = json.dumps(result);
+    json_result = json.dumps(result)
     resp = Response(json_result, status=200, mimetype='application/json')
     return resp
 
@@ -93,7 +93,7 @@ def view_inventory(inventory_id):
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM Inventory WHERE id=%s', inventory_id)
     result = cursor.fetchall()
-    json_result = json.dumps(result);
+    json_result = json.dumps(result)
     resp = Response(json_result, status=200, mimetype='application/json')
     return resp
 
