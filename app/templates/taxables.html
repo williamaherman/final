@@ -12,21 +12,21 @@
         </tr>
         </thead>
         <tbody>
-        {% for each in inventory %}
+        {% for taxable in taxables %}
             <tr>
-                <td>{{ each['Index'] }}</td>
-                <td>{{ each['Item'] }}</td>
-                <td>{{ each['Cost'] }}</td>
-                <td>{{ each['Tax'] }}</td>
-                <td>{{ each['Total'] }}</td>
+                <td>{{ taxable['Index'] }}</td>
+                <td>{{ taxable['Item'] }}</td>
+                <td>{{ taxable['Cost'] }}</td>
+                <td>{{ taxable['Tax'] }}</td>
+                <td>{{ taxable['Total'] }}</td>
                 <td>
-                    <a class="btn btn-sm btn-success" href="view/{{ taxables['id'] }}">View</a>
+                    <a class="btn btn-sm btn-success" href="view/{{ taxable['id'] }}">View</a>
                 </td>
                 <td>
-                    <a class="btn btn-sm btn-primary" href="edit/{{ taxables['id'] }}">Edit</a>
+                    <a class="btn btn-sm btn-primary" href="edit/{{ taxable['id'] }}">Edit</a>
                 </td>
                 <td>
-                    <form action="/delete/{{ taxables['id'] }}" method="post">
+                    <form action="/delete/{{ taxable['id'] }}" method="post">
                         <button class="btn btn-sm btn-danger" type="submit">Delete</button>
                     </form>
                 </td>

@@ -3,31 +3,31 @@
 {% block content %}
     <h2>Edit The Inventory</h2>
 
-    <form action="/edit/{{ taxables['id'] }}" method="post">
+    <form action="/edit/{{ taxable['id'] }}" method="post">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label>Index/label>
                 <input type="text" class="form-control" name="Index" id="Index"
-                       value="{{ taxables['Index'] }}">
+                       value="{{ taxable['Index'] }}">
             </div>
             <div class="form-group col-md-6">
                 <label>Item</label>
                 <input type="text" class="form-control" name="Item" id="Item"
-                       value="{{ taxables['Item'] }}">
+                       value="{{ taxable['Item'] }}">
             </div>
         </div>
         <div class="form-group">
             <label>Cost</label>
-            <input type="text" class="form-control" name="Cost" id="Cost" value="{{ taxables['Cost'] }}">
+            <input type="text" class="form-control" name="Cost" id="Cost" value="{{ taxable['Cost'] }}">
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label>Tax</label>
-                <input type="text" class="form-control" name="Tax" id="Tax" value="{{ taxables['Tax'] }}">
+                <input type="text" class="form-control" name="Tax" id="Tax" value="{{ taxable['Tax'] }}">
             </div>
             <div class="form-group col-md-4">
                 <label>Total</label>
-                <input type="text" class="form-control" name="Total" id="Total" value="{{ taxables['Total'] }}">
+                <input type="text" class="form-control" name="Total" id="Total" value="{{ taxable['Total'] }}">
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
