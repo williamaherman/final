@@ -3,31 +3,31 @@
 {% block content %}
     <h2>Edit The Inventory</h2>
 
-    <form action="/edit/{{ inventory['id'] }}" method="post">
+    <form action="/edit/{{ taxables['id'] }}" method="post">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label>Product Name</label>
-                <input type="text" class="form-control" name="product_name" id="product_name"
-                       value="{{ inventory['product_name'] }}">
+                <label>Index/label>
+                <input type="text" class="form-control" name="Index" id="Index"
+                       value="{{ taxables['Index'] }}">
             </div>
             <div class="form-group col-md-6">
-                <label>Product Description</label>
-                <input type="text" class="form-control" name="product_description" id="product_description"
-                       value="{{ inventory['product_description'] }}">
+                <label>Item</label>
+                <input type="text" class="form-control" name="Item" id="Item"
+                       value="{{ taxables['Item'] }}">
             </div>
         </div>
         <div class="form-group">
-            <label>Made In</label>
-            <input type="text" class="form-control" name="made" id="made" value="{{ inventory['made_in'] }}">
+            <label>Cost</label>
+            <input type="text" class="form-control" name="Cost" id="Cost" value="{{ taxables['Cost'] }}">
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label>Price</label>
-                <input type="text" class="form-control" name="price" id="price" value="{{ inventory['price'] }}">
+                <label>Tax</label>
+                <input type="text" class="form-control" name="Tax" id="Tax" value="{{ taxables['Tax'] }}">
             </div>
             <div class="form-group col-md-4">
-                <label>Color</label>
-                <input type="text" class="form-control" name="color" id="color" value="{{ inventory['color'] }}">
+                <label>Total</label>
+                <input type="text" class="form-control" name="Total" id="Total" value="{{ taxables['Total'] }}">
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Update</button>

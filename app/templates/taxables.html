@@ -1,32 +1,32 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <h2>Inventory</h2>
+    <h2>Taxables</h2>
     <table class="table table-borderless table-striped table-hover">
         <thead>
         <tr>
-            <th scope="col">Product Name</th>
-            <th scope="col">Product Description</th>
-            <th scope="col">Made In</th>
-            <th scope="col">Price</th>
-            <th scope="col">Color</th>
+            <th scope="col">Index</th>
+            <th scope="col">Item</th>
+            <th scope="col">Cost</th>
+            <th scope="col">Tax</th>
+            <th scope="col">Total</th>
         </tr>
         </thead>
         <tbody>
         {% for each in inventory %}
             <tr>
-                <td>{{ each['product_name'] }}</td>
-                <td>{{ each['product_description'] }}</td>
-                <td>{{ each['made_in'] }}</td>
-                <td>{{ each['price'] }}</td>
-                <td>{{ each['color'] }}</td>
+                <td>{{ each['Index'] }}</td>
+                <td>{{ each['Item'] }}</td>
+                <td>{{ each['Cost'] }}</td>
+                <td>{{ each['Tax'] }}</td>
+                <td>{{ each['Total'] }}</td>
                 <td>
-                    <a class="btn btn-sm btn-success" href="view/{{ inventory['id'] }}">View</a>
+                    <a class="btn btn-sm btn-success" href="view/{{ taxables['id'] }}">View</a>
                 </td>
                 <td>
-                    <a class="btn btn-sm btn-primary" href="edit/{{ inventory['id'] }}">Edit</a>
+                    <a class="btn btn-sm btn-primary" href="edit/{{ taxables['id'] }}">Edit</a>
                 </td>
                 <td>
-                    <form action="/delete/{{ inventory['id'] }}" method="post">
+                    <form action="/delete/{{ taxables['id'] }}" method="post">
                         <button class="btn btn-sm btn-danger" type="submit">Delete</button>
                     </form>
                 </td>
@@ -34,5 +34,5 @@
         {% endfor %}
         </tbody>
     </table>
-    <a class="btn btn-info" href="new">Add New Inventory</a>
+    <a class="btn btn-info" href="new">Add New Taxable</a>
 {% endblock %}

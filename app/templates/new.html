@@ -1,31 +1,31 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <h2>Add New Inventory</h2>
+    <h2>Add New Taxable</h2>
 
     <form action="/new" method="post">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label>Product Name</label>
-                <input type="text" class="form-control" name="product_name" id="product_name">
+                <label>Index</label>
+                <input type="text" class="form-control" name="Index" id="Index">
             </div>
             <div class="form-group col-md-6">
-                <label>Made In</label>
-                <input type="text" class="form-control" name="made_in" id="made_in">
+                <label>Item</label>
+                <input type="text" class="form-control" name="Item" id="Item">
             </div>
         </div>
         <div class="form-group">
-            <label>Product Description</label>
-            <input type="text" class="form-control" name="product_description" id="product_description" placeholder="Please include product's condition ">
+            <label>Cost</label>
+            <input type="text" class="form-control" name="Cost" id="Cost" placeholder="What is the cost">
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label>Price</label>
-                <input type="text" class="form-control" name="price" id="price">
+                <label>Tax</label>
+                <input type="text" class="form-control" name="Tax" id="Tax">
             </div>
             <div class="form-group col-md-4">
-                <label>Color</label>
-                <input type="text" class="form-control" name="color" id="color">
+                <label>Total</label>
+                <input type="text" class="form-control" name="Total" id="Total">
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Add</button>
