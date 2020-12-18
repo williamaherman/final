@@ -2,10 +2,10 @@ CREATE DATABASE taxablesData;
 use taxablesData;
 
 CREATE TABLE IF NOT EXISTS taxables (id int AUTO_INCREMENT,
-    Item VARCHAR(48),
-    Cost VARCHAR(48),
+    Item VARCHAR(48) CHARACTER SET utf8,
+    Cost VARCHAR(48) CHARACTER SET utf8,
     Tax NUMERIC(4, 2),
-    Total NUMERIC(4, 2),
+    Total NUMERIC(8, 2),
     PRIMARY KEY (id)
 );
 INSERT INTO taxables(Item, Cost, Tax, Total) VALUES
