@@ -114,7 +114,7 @@ def change_taxables(taxables_id):
 def new_taxables():
     cursor = mysql.get_db().cursor()
     content = request.json
-    sql = "INSERT INTO taxables (Item,Cost, Tax, Total) VALUES (%s,%s,%s,%s)"
+    sql = "INSERT INTO taxables (Item, Cost, Tax, Total) VALUES (%s,%s,%s,%s)"
     val = (content['Item'], content['Cost'], content['Tax'], content['Total'])
     cursor.execute(sql, val)
     mysql.get_db().commit()
